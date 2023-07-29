@@ -28,7 +28,7 @@ cy.get("[name='username']").should('have.value','Admin') // name of Value
 it('Explicit assertion',()=>{
 
     cy.visit("https://opensource-demo.orangehrmlive.com")
-    cy.url.should('contain','orangehrmlive')
+    cy.url().should('contain','orangehrmlive')
 
     cy.get("[name='username']").type("Admin")
     cy.get("[placeholder='Password']").type("admin123")

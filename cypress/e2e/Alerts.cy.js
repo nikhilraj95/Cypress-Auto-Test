@@ -80,8 +80,8 @@ it.only('Authenticate alert',()=>{
 
 //approach 2
 cy.visit('https://admin:admin@the-internet.herokuapp.com/basic_auth')
-cy.get("div[class='example'] p").
-should('have.text','Congratulations! You must have the proper credentials.')
+cy.get("div[class='example']")
+.should('have.text','Congratulations! You must have the proper credentials.');
 
 
 
