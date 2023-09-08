@@ -4,7 +4,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.poi.ss.formula.functions.Replace;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+
+import com.aventstack.extentreports.gherkin.model.Scenario;
 
 import driverconfig.DriverFactory;
 import io.cucumber.java.After;
@@ -29,17 +34,40 @@ public class AppHooks {
 		String browser_Name=prop.getProperty("browser");
 		
 		df = new DriverFactory();
+		
 		driver=df.initBrowser(browser_Name);
 		
 		driver.manage().window().maximize();
 		
 	}
 	
-	@After
-	public void tear_Down() {
+	@After(order=1)
+	public void quitBrowser() {
 		
 		driver.quit();
 	}
+	
+	@After(order=2)
+	public void tear_Down (io.cucumber.java.Scenario scenario) {				// here taking screenshot so calling Scenario class from cucumber
+		
+	boolean is_Failed = scenario.isFailed();
+	
+	if (is_Failed) 
+	{
+		
+		 String scenario_Name = scenario.getName();
+		 String name=scenario_Name.replaceAll(" ", "_");
+		  
+		 TakesScreenshot ts =(TakesScreenshot)driver;
+		 
+		byte[] source = ts.getScreenshotAs(OutputType.BYTES);
+		
+		scenario.attach(source, "image/png", name);
+		
+	}
+		
+	}
+	
 	
 	
 }
