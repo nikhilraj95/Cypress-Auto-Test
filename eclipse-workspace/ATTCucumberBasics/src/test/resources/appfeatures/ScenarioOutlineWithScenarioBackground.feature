@@ -16,3 +16,7 @@ Examples:
 | Raj | 30 | Male |
 
 ## we can add a simple scenario also here it will also can get execute in this feature file 
+
+
+
+

@@ -8,7 +8,7 @@ Feature: Registration Functionality
 Scenario: Registration with dependant
 Given User should be at account opening page
 When User enters the Infomation
- | Firstname | Lastname | Email | Mobile no |
+| Firstname | Lastname | Email | Mobile no |
 | Roni | kumar| roni@gmail.com | 909090909098 |
 | Raman | Kapoor | ramanu@gmail.com | 9604387766 |
 | Ravi | Shetty | ravi@gmail.com | 9604354433 |

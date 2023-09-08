@@ -11,7 +11,7 @@ static	WebDriver driver;
 	{
 		 driver = new ChromeDriver();
 		
-		if (browsername.equals("Chrome"))
+		if (browsername.equalsIgnoreCase("Chrome"))
 		{
 			 driver= new ChromeDriver();
 		}

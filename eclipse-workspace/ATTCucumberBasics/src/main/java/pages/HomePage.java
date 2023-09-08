@@ -5,10 +5,12 @@ import java.time.Duration;
 
 import javax.xml.xpath.XPath;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,7 +24,7 @@ public class HomePage {
 	@FindBy (xpath = "//*[@id ='nav-cart']")
 	WebElement cart_Icon;
 	
-	@FindBy(xpath = "//*[@class='a-carousel-card']//img[@alt='Unrec']")
+	@FindBy(xpath = "//*[@class='a-carousel-card']//img[@alt='Amazon fashion']")
 	WebElement fitnessCarousel;
 	
 //	@FindBy(xpath = "//*[@class='a-carousel-card']//img[@alt='op']")
@@ -50,9 +52,11 @@ public class HomePage {
 	@FindBy(xpath="//*[@id='signInSubmit']")
 	WebElement final_Sign_in;
 	
-	public HomePage() {           //Constructor 
-		
+	public HomePage(WebDriver driver) {           //Constructor 
+		this.driver=driver;
+		PageFactory.initElements(driver,this);
 		wait= new WebDriverWait(driver, Duration.ofSeconds(60));
+					
 	}
 	
 	public String get_Title_Of_Page() {
@@ -73,8 +77,12 @@ public class HomePage {
 	public void carousel_Navigation()
 	{
 		wait.until(ExpectedConditions.visibilityOf(fitnessCarousel));
+		
+		 JavascriptExecutor js =(JavascriptExecutor)driver;
+		 
+		 js.executeScript("arguments[0].click();", fitnessCarousel);
 			
-		fitnessCarousel.click();
+		
 	}
 	
 	public boolean fitness_Module() {

@@ -20,7 +20,7 @@ public class AppHooks {
 	{
 		Properties prop =new Properties();
 		
-		 String path=System.getProperty("user.dir")+"src\\test\\resources\\config.properties";
+		 String path=System.getProperty("user.dir")+"\\src\\test\\resources\\config.properties";
 		 
 		 FileInputStream fis = new FileInputStream(path);
 		 
@@ -28,8 +28,8 @@ public class AppHooks {
 		 
 		String browser_Name=prop.getProperty("browser");
 		
-		 df = new DriverFactory();
-		df.initBrowser(browser_Name);
+		df = new DriverFactory();
+		driver=df.initBrowser(browser_Name);
 		
 		driver.manage().window().maximize();
 		
@@ -38,7 +38,7 @@ public class AppHooks {
 	@After
 	public void tear_Down() {
 		
-		driver.close();
+		driver.quit();
 	}
 	
 	

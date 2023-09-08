@@ -15,5 +15,5 @@ Then user should redirect  to fashion page
 
 Scenario: login to application
 Given user is at the landing page
-When user enters the username as "username"
-And user enters the password as "12345"
+When user enters the username as "8176867662"
+And user enters the password as "123456"
