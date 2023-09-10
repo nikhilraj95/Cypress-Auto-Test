@@ -15,10 +15,15 @@ public class HomePageSteps {
 	
 	HomePage homepage =new HomePage (DriverFactory.getDriver());
 	
+	//HomePage homepage =new HomePage (DriverFactory2.getDriver());  for parallel execution on web browser
+	
 	@Given("user is at the landing page")
 	public void user_is_at_the_landing_page() {
 	    WebDriver driver=DriverFactory.getDriver();   //calling method classname.methodname (getDriver)
-	   driver.get("https://www.amazon.in/");
+	  
+	    //WebDriver driver=DriverFactory2.getDriver();   // for parallel execution on web browser
+	    
+	    driver.get("https://www.amazon.in/");
 	}
 
 	@Then("page title should contains {string}")

@@ -1,5 +1,5 @@
 Feature: Home page functionality
-
+##@Sanity
 Scenario: verify title of page
 Given user is at the landing page
 Then page title should contains "Shopping"

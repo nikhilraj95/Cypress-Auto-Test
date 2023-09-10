@@ -19,6 +19,7 @@ public class AppHooks {
 	
 	WebDriver driver;
 	DriverFactory df ;
+	//DriverFactory2 df ;   for parallel execution on web browser
 	
 	@Before
 	public void launch_Browser() throws IOException
@@ -33,7 +34,18 @@ public class AppHooks {
 		 
 		String browser_Name=prop.getProperty("browser");
 		
+		String maven_Browser=System.getProperty("clibrowser"); 
+		
+		System.out.println("Browser received from maven:"+maven_Browser);
+		
+		if(maven_Browser!=null)
+		{
+			browser_Name=maven_Browser;
+		}
+		 
 		df = new DriverFactory();
+		
+		//df = new DriverFactory2();   for parallel execution on web browser
 		
 		driver=df.initBrowser(browser_Name);
 		

@@ -7,6 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 		
 		features = {"src\\test\\resources\\appfeatures\\RegistrationApp.feature"},
 		glue = {"steps"},
+		//plugin = {"pretty"},
 		publish = true
 		
 		)
