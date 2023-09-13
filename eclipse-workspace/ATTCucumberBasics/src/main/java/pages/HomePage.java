@@ -55,7 +55,7 @@ public class HomePage {
 	public HomePage(WebDriver driver) {           //Constructor 
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
-		wait= new WebDriverWait(driver, Duration.ofSeconds(60));
+		wait= new WebDriverWait(driver, Duration.ofSeconds(60)); 
 					
 	}
 	
@@ -87,7 +87,7 @@ public class HomePage {
 	
 	public boolean fitness_Module() {
 		
-		wait.until(ExpectedConditions.visibilityOf(fitness_watch));
+		wait.until(ExpectedConditions.visibilityOf(fitness_watch));  //explicit wait
 		
 		 boolean is_Display=fitness_watch.isDisplayed();
 		 

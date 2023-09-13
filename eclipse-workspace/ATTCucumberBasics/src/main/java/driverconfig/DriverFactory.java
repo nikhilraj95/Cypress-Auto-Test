@@ -25,9 +25,8 @@ static	WebDriver driver;
 		return driver;
 	}
 	
-	//below one is used when need an object to call any where
+	//below one is used when need an object to call any where or if we do not need a multiple browser opened situation
 	public  static WebDriver getDriver() {
-		
 		
 		return driver;
 	}
